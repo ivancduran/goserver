@@ -1,0 +1,8 @@
+[Unit]
+Description=Golang Web Server
+
+[Service]
+ExecStart=/etc/init.d/goserver
+
+[Install]
+WantedBy=multi-user.target

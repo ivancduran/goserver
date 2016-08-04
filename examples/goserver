@@ -1,0 +1,24 @@
+#!/bin/bash
+
+case $1 in
+    start)
+        echo "Starting Go Server."
+        cd "/root/.gvm/pkgsets/go1.6/global/src/github.com/ivancduran/newserv/backend/"; ./main &
+        ;;
+    stop)
+        echo "Stopping Go Server."
+        sudo kill $(sudo lsof -t -i:8080)
+        ;;
+    restart)
+        echo -n "Restarting Web Service for Golang: "
+        sudo kill $(sudo lsof -t -i:8080)
+        sleep 1
+        cd "/root/.gvm/pkgsets/go1.6/global/src/github.com/ivancduran/newserv/backend/"; ./main &
+        echo "Ready."
+        ;;
+    *)
+        echo "Options:"
+        echo $"Usage $0 {start|stop|restart}"
+        exit 1
+esac
+exit 0

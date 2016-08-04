@@ -1,0 +1,10 @@
+# put in: /etc/systemd/system/
+# activate: systemctl enable goserver.service 
+[Unit]
+Description=Golang Web Server
+
+[Service]
+ExecStart=/etc/init.d/goserver
+
+[Install]
+WantedBy=multi-user.target
