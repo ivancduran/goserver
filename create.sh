@@ -7,7 +7,7 @@ echo "#!/bin/bash
 case \$1 in
     start)
     echo \"Starting Go Server.\"
-        sudo nginx -c \"$PATH/prod/output/nginx.conf\" &
+        sudo nginx -c \"$PATH/service/output/nginx.conf\" &
         cd \"$PATH/backend/\"; ./main &
         ;;
     stop)
